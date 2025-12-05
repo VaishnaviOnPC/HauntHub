@@ -1,0 +1,28 @@
+{
+  "mcpServers": {
+    "haunted-lights": {
+      "command": "node",
+      "args": ["./mcp-tools/haunted-lights-tool.js"],
+      "disabled": false,
+      "autoApprove": ["dim_lights", "brighten_lights", "set_light_color"]
+    },
+    "file-haunting": {
+      "command": "node", 
+      "args": ["./mcp-tools/file-haunting-tool.js"],
+      "disabled": false,
+      "autoApprove": ["list_files", "read_file", "rename_file"]
+    },
+    "spooky-ascii": {
+      "command": "node",
+      "args": ["./mcp-tools/spooky-ascii-tool.js"], 
+      "disabled": false,
+      "autoApprove": ["generate_ascii"]
+    },
+    "scare-effects": {
+      "command": "node",
+      "args": ["./mcp-tools/scare-effect-tool.js"],
+      "disabled": false,
+      "autoApprove": ["trigger_scare"]
+    }
+  }
+}

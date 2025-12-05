@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Gemini Connection</title>
+    <style>
+        body {
+            font-family: monospace;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #00ff00;
+        }
+        button {
+            background: #ff6b35;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 20px;
+            background: #2a2a2a;
+            border: 1px solid #00ff00;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>👻 Gemini Connection Test</h1>
+    
+    <button onclick="testHealth()">Test Backend Health</button>
+    <button onclick="testChat()">Test Gemini Chat</button>
+    
+    <div id="result">Click a button to test...</div>
+
+    <script>
+        async function testHealth() {
+            const result = document.getElementById('result');
+            result.textContent = 'Testing backend health...';
+            
+            try {
+                const response = await fetch('http://localhost:3001/api/health');
+                const data = await response.json();
+                result.textContent = '✅ Backend Health:\n' + JSON.stringify(data, null, 2);
+            } catch (error) {
+                result.textContent = '❌ Backend Error:\n' + error.message;
+            }
+        }
+
+        async function testChat() {
+            const result = document.getElementById('result');
+            result.textContent = 'Testing Gemini chat...';
+            
+            try {
+                const response = await fetch('http://localhost:3001/api/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        message: 'Hello Ghost Butler!',
+                        conversationHistory: []
+                    })
+                });
+                
+                const data = await response.json();
+                result.textContent = '✅ Gemini Response:\n' + JSON.stringify(data, null, 2);
+            } catch (error) {
+                result.textContent = '❌ Gemini Error:\n' + error.message;
+            }
+        }
+    </script>
+</body>
+</html>

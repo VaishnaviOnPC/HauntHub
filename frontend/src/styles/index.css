@@ -1,0 +1,119 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Halloween Color Palette */
+  --primary-bg: #0a0a0a;
+  --secondary-bg: #1a1a1a;
+  --accent-bg: #2a1810;
+  --ghost-white: #f8f8ff;
+  --pumpkin-orange: #ff6b35;
+  --blood-red: #8b0000;
+  --witch-purple: #4b0082;
+  --shadow-gray: #2f2f2f;
+  --eerie-green: #32cd32;
+  
+  /* Typography */
+  --font-spooky: 'Creepster', cursive;
+  --font-gothic: 'Butcherman', cursive;
+  --font-body: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  
+  /* Shadows */
+  --shadow-light: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.4);
+  --shadow-heavy: 0 8px 16px rgba(0, 0, 0, 0.6);
+  --glow-orange: 0 0 20px rgba(255, 107, 53, 0.5);
+  --glow-purple: 0 0 20px rgba(75, 0, 130, 0.5);
+}
+
+body {
+  font-family: var(--font-body);
+  background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
+  color: var(--ghost-white);
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Scare Effect Classes */
+body.screen-shake {
+  animation: screenShake 0.6s ease-in-out;
+}
+
+body.flash-lights {
+  animation: flashLights 0.4s ease-in-out;
+}
+
+body.ghostly-whisper {
+  filter: blur(0.5px);
+  opacity: 0.9;
+}
+
+@keyframes screenShake {
+  0%, 100% { transform: translateX(0); }
+  10% { transform: translateX(-10px) rotate(-1deg); }
+  20% { transform: translateX(10px) rotate(1deg); }
+  30% { transform: translateX(-8px) rotate(-1deg); }
+  40% { transform: translateX(8px) rotate(1deg); }
+  50% { transform: translateX(-6px) rotate(-0.5deg); }
+  60% { transform: translateX(6px) rotate(0.5deg); }
+  70% { transform: translateX(-4px) rotate(-0.5deg); }
+  80% { transform: translateX(4px) rotate(0.5deg); }
+  90% { transform: translateX(-2px); }
+}
+
+@keyframes flashLights {
+  0%, 100% { background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%); }
+  25% { background: var(--blood-red); }
+  50% { background: var(--primary-bg); }
+  75% { background: var(--blood-red); }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--secondary-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--pumpkin-orange);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--blood-red);
+}
+
+/* Selection Styling */
+::selection {
+  background: var(--pumpkin-orange);
+  color: var(--primary-bg);
+}
+
+/* Focus Styles */
+*:focus {
+  outline: 2px solid var(--pumpkin-orange);
+  outline-offset: 2px;
+}
+
+/* Utility Classes */
+.text-center { text-align: center; }
+.text-spooky { font-family: var(--font-spooky); }
+.text-gothic { font-family: var(--font-gothic); }
+
+.glow-orange { box-shadow: var(--glow-orange); }
+.glow-purple { box-shadow: var(--glow-purple); }
